@@ -3,6 +3,6 @@ dockerfilePath = "backend/Dockerfile"
 
 [deploy]
 startCommand = "scripts/start/app.sh"
-healthcheckPath = "/api/v1/health"
+healthcheckPath = "/"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
