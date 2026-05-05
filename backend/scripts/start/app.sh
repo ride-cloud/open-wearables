@@ -2,8 +2,9 @@
 set -e -x
 
 # Ensure svix database exists (idempotent)
+# Non-fatal: Railway Postgres users can't CREATE DATABASE, and Svix is optional
 echo 'Ensuring svix database...'
-uv run python scripts/init/create_svix_db.py
+uv run python scripts/init/create_svix_db.py || echo "Warning: Could not create svix database — continuing without it."
 
 # Init database
 echo 'Applying migrations...'
